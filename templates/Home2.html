@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" style="background: linear-gradient(to top right, #fc2c77 -5%, #6c4079 96%);;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: black;
+          margin: 61px;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+          padding: 16px;
+          background-color: white;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+          background-color: #04AA6D;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+         .loginbtn {
+          background-color: red;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+          opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+          color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+          background-color: #285290;
+          text-align: center;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+        </style>
+</head>
+<body>
+<h1 style="text-align:center; color:white;">{{msg}}</h1>
+      <form action="new_user" method="post"style="background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);">
+          {% csrf_token %}
+        <div class="container" style="border-radius: 25px;">
+            <div class="col-md-6">
+                <img src="static/media/img1.jpeg" style="width: 100%;height: 650px;">
+                </div>
+                <div class="col-md-6">
+          <h1><b>Register</b></h1>
+          <p>Please fill in this form to create an account.</p>
+          </div>
+          <hr>
+
+            <div class="col-md-6">
+          <label for="email"><b style="padding-left: 8px;">username</b></label>
+          <input type="text" placeholder="Enter Email" name="email" id="email" required>
+          </div>
+          <div class="col-md-6">
+          <label for="name"><b style="padding-left: 8px;">name</b></label>
+          <input type="text" placeholder="Enter first name" name="name" id="name" required>
+          </div>
+
+          <div class="col-md-6">
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Password" name="password" id="password" required>
+        </div>
+        <hr>
+        <div class="col-md-6">
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        </div>
+        <div class="col-md-6">
+            <form action="new_user"method="post"></form>
+            {% csrf_token %}
+          <button type="submit" class="registerbtn">Sign Up</button>
+        </div>
+            <center><p>or</p></center>
+             <div class="col-md-6">
+            <center>
+              <button class="loginbtn "data-target="#mymodal"data-toggle="modal">Login</button>
+                </center>
+        </div>
+        </div>
+          </form>
+
+
+                         <div class="modal"id="mymodal">
+                          <div class="modal-dialog model-dialog-centered">
+                             <div class="modal-content">
+
+                            <div class="modal-header"style="padding:10px;">
+                          <h3 class="text text-white">Login</h3>
+                        <button type ="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <center>
+                            <form action="login_here"method="post">
+                              {% csrf_token %}
+                                <!--Email-Id<input type="email"name="email"placeholder="enter email-Id"name="email"required><br><br>-->
+                                <label for="email"><b>username</b></label>
+                                <input type="text" placeholder="Enter email" name="email" id="email1" required>
+                                password<input type="password"name="password"placeholder="Enter password"name="password"required><br><br>
+                               <form action="login_here"method="post">
+                                <button class="loginbtn ">Login</button><br><br>
+                                    </form>
+                               <a href="user">New user?</a>
+                            </form>
+                        </center>
+
+                    </div>
+                                  </div>
+                             </div>
+                          </div>
+                         </div>
+
+
+</body>
+</html>
